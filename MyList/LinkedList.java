@@ -13,10 +13,11 @@ public class LinkedList<E> implements InterfaceLinkedList<E>, Iterable<E>, Desce
         LinkedList<String> stringLinked = new LinkedList<>();
         stringLinked.addLast("abc");
         stringLinked.addLast("de");
-        stringLinked.addFirst("013");
-        System.out.println(stringLinked.size());
-        System.out.println(stringLinked.getElemByIndex(0));
-        System.out.println(stringLinked);
+        stringLinked.addLast("013");
+        stringLinked.addFirst("Hello");
+        System.out.println("Размер списка: " + stringLinked.size());
+        //System.out.println(stringLinked.getElemByIndex(0));
+//        System.out.println(stringLinked);
         // TODO: Почему-то в обрат. порядке выводит нормально, а последовательно - бесконечный цикл с выводом первого элемента
 //        Iterator iter = stringLinked.iterator();
 //        while (iter.hasNext()) {
@@ -51,7 +52,7 @@ public class LinkedList<E> implements InterfaceLinkedList<E>, Iterable<E>, Desce
         Node<E> next = fstNode; //  инициализируем переменную для первого элемента
         next.setCurrentElem(e); // присваиваем значение этому первому элементу
         fstNode = new Node<E>(null, null, next); // Создаём новый первый пустой элемент, со ссылкой на пред. добавленный
-        next.setNextElem(fstNode); // Создаем указатель для добавленного элемента ссылку на пред. пустой
+        next.setPrevElem(fstNode); // Создаем указатель для добавленного элемента ссылку на пред. пустой
         size++; // увеличиваем размер на +1
     }
 
